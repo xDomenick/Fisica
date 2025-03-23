@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulación de Cañón</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 20px;
+            background-color: #a5d6a7; /* En esta parte especificamos el fondo verde que tenemos */
+            color: #000000; /* En esta parte especificamos el de color negro*/
+            font-weight: bold; /* Colocamos todo el texto en negrita */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: row; 
+        }
+        h1 {
+            color: #000000; /* colocamos nuestro título en negro */
+            margin-bottom: 20px;
+        }
+        .content {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .left-content {
+            max-width: 350px;
+            margin-right: 60px; 
+        }
+        .input-group {
+            display: flex;
+            align-items: center; 
+            margin-bottom: 10px; 
+        }
+        label {
+            font-size: 16px;
+            margin-right: 10px; 
+        }
+        input {
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #00796b;
+            width: 100%;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #00796b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #004d40;
+        }
+        .result {
+            margin-top: 23px;
+            font-size: 20px;
+            color: #000000; /* Texto de resultados en negro */
+        }
+        canvas {
+            border: 2px solid #000;
+            display: block;
+            background-color: #b2e0c7; /* indicamos que el fondo para la gráfica */
+            width: 500px; 
+            height: 350px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <!-- Cuadro de Entrada de Datos (Ángulo y Velocidad) -->
+        <div class="left-content">
+            <h1>Ingresa tus datos</h1>
+            
+            <div class="input-group">
+                <label for="angulo">Ángulo:</label>
+                <input type="number" id="angulo" placeholder="Ingresa el angulo en grados" min="0" max="90">
+            </div>
+            
+            <div class="input-group">
+                <label for="velocidad">Velocidad:</label>
+                <input type="number" id="velocidad" placeholder="Ingresa la velocidad en m/s" min="1">
+            </div>
+
+            <button onclick="calcularTrayectoria()">Calcular</button>
+            
+            <!-- Resultados -->
+            <div class="result">
+                <p id="resultadoDistancia">Distancia a la que aterrizó la bola: -</p>
+                <p id="resultadoTiempo">Tiempo que tardó la bola en caer: -</p>
+            </div>
+        </div>
+
+        <!-- Gráfica -->
+        <div>
+            <h2>Esta es la gráfica del lanzamiento:</h2>
+            <canvas id="trayectoria"></canvas>
+        </div>
+    </div>
+
+    <script src="script.js"></script> <!-- Enlace al archivo JavaScript -->
+</body>
+</html>
